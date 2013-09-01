@@ -3,27 +3,45 @@ package main
 import (
 	"fmt"
 	"github.com/PuerkitoBio/goquery"
-	"net/http"
+	"encoding/json"
 	"os"
 )
 
-func main() {
-	getOldCatalog()
-	http.HandleFunc("/", goGoCatalog)
-	fmt.Println("Serving catalog...")
-	if os.Getenv("PORT") != "" {
-		fmt.Println(os.Getenv("PORT"))
-	} else {
-		fmt.Println("wtf")
-	}
-	err := http.ListenAndServe(":"+os.Getenv("PORT"), nil)
-	if err != nil {
-		panic(err)
-	}
+type Classes struct {
+	classList []Class
 }
 
-func getOldCatalog() {
+type Class struct {
+	title string
+	num string
+	faculty string
+}
 
+func main() {
+	courses := getOldCatalog()
+	fmt.Printf("# of Courses - %v", len(courses))
+
+	b, err := json.Marshal(courses)
+	if err != nil {
+		fmt.Println("error:", err)
+	}
+
+
+
+	file, err := os.Open("classes.json")
+    if err != nil {
+        // handle the error here
+        os.Create("classes.json")
+    }
+
+    file.Write(b)
+
+    file.Close()
+}
+
+func getOldCatalog() []Class {
+
+	classList := make([]Class)
 	var doc *goquery.Document
 	var e error
 
@@ -46,37 +64,11 @@ func getOldCatalog() {
 			}
 
 		})
-
-		fmt.Printf("%s - %s - %s\n", num, title, fac)
-
+		classList = append(classList, Class{num: num, title: title, faculty: fac})
 	})
 
-	// resp, err := http.Get("http://www.heinz.cmu.edu/academic-resources/course-results/index.aspx")
 
-	// if err != nil {
-	// 	panic(err)
-	// }
+	cl := Classes{classList:classList}
+	return cl
 
-	// s := strings.NewReader("<a></a>")
-	// a, err := html.Parse(s)
-
-	// fmt.Println(a)
-
-	// fmt.Println(resp)
-	// fmt.Println('\n')
-	// fmt.Println(resp.Body)
-
-	// thing, err := ioutil.ReadAll(resp.Body)
-	// resp.Body.Close()
-
-	// thing2 := strings.NewReader(string(thing))
-	// doc, err := html.Parse(thing2)
-
-	// fmt.Printf("%s", doc)
-
-}
-
-func goGoCatalog(res http.ResponseWriter, req *http.Request) {
-
-	fmt.Fprintln(res, "hello, world")
 }
