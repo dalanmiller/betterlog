@@ -10,10 +10,10 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <link rel="stylesheet" href="styles/1ec6b37b.main.css">
+    <link rel="stylesheet" href="styles/cc108b61.main.css">
     <script src="scripts/vendor/f7f27360.modernizr.js"></script>
 
-    <script src="scripts/977bef77.main.js"></script>
+    <script src="scripts/cb11af83.main.js"></script>
 
   </head>
   <body ng-app="Scotty">
@@ -33,14 +33,15 @@
                 <input ng-model="query" ng-change="update()" id="search" type="search" class="form-control input-lg" placeholder="Search for a class">
               </div>
             </form>
-            <table class="table table-hover">
+            <div class="table-responsive">
+            <table class="table table-condensed">
               <thead>
-                <th>Course #</th>
-                <th>Course Title</th>
-                <th>Faculty</th>
-                <th>Subject</th>
+                <th ng-click="ordering = 'num'; reverse=!reverse"><a href="">#</a></th>
+                <th ng-click="ordering = 'title'; reverse=!reverse"><a href="">Course Title</a></th>
+                <th ng-click="ordering = 'professor'; reverse=!reverse"><a href="">Faculty</a></th>
+                <th ng-click="ordering = 'subject'; reverse=!reverse"><a href="">Subject</a></th>
               </thead>
-              <tbody ng-repeat="class in classes | filter:query | orderBy:num">
+              <tbody ng-repeat="class in classes | filter:query | orderBy:ordering:reverse">
                 <tr class="class">
                     <td>{{class.num}}</td>
                     <td>{{class.title}}</td>
@@ -49,6 +50,7 @@
                 </tr>
               </tbody>
             </table>
+            </div>
           </div>
       </div>
     </div>
