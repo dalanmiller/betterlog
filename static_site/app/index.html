@@ -43,8 +43,15 @@
                 <th>Course #</th>
                 <th>Course Title</th>
                 <th>Faculty</th>
+                <th>Subject</th>
               </thead>
-              <tbody>
+              <tbody ng-repeat="class in classes | filter:query | orderBy:num">
+                <tr class="class">
+                    <td>{{class.num}}</td>
+                    <td>{{class.title}}</td>
+                    <td>{{class.professor}}</td>
+                    <td>{{class.subject}}</td>
+                </tr>
               </tbody>
             </table>
           </div>
