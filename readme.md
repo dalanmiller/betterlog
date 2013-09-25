@@ -1,5 +1,15 @@
 #Scotty
 
+Scotty is built using the following technologies:
+
+* Yeoman (which includes Bower & Grunt)
+* LESS
+* AngularJS
+* Github Pages
+* Python 
+** BeautifulSoup
+** Requests
+
 ###What is the purpose of this site?
 
 To make searching for classes at Heinz a little bit easier. Currently it's not that good of an experience and all the classes are limited to a very small window which is not responsive and does not load quickly. 
