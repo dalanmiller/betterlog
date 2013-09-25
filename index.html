@@ -1,4 +1,4 @@
-<html ng-app="">
+<html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
@@ -13,9 +13,10 @@
     <link rel="stylesheet" href="styles/1ec6b37b.main.css">
     <script src="scripts/vendor/f7f27360.modernizr.js"></script>
 
-    <script src="scripts/ae74e770.main.js"></script>
+    <script src="scripts/977bef77.main.js"></script>
+
   </head>
-  <body ng-controller="BetterlogueCtrl">
+  <body ng-app="Scotty">
     <div class="container">
       <div class="row">
           <div class="col-lg-12">
@@ -25,7 +26,7 @@
           </header>
           </div>
       </div>
-      <div class="row">
+      <div ng-controller="LogCtrl" class="row">
           <div class="col-lg-12">
             <form>
               <div class="form-group">
@@ -59,7 +60,7 @@
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>
-      var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+      var _gaq=[['_setAccount','UA-44313231-1'],['_trackPageview']];
       (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
       g.src='//www.google-analytics.com/ga.js';
       s.parentNode.insertBefore(g,s)}(document,'script'));
