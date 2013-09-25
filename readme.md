@@ -2,13 +2,11 @@
 
 Scotty is built using the following technologies:
 
-* Yeoman (which includes Bower & Grunt)
+* Yeoman (which includes Bower, Grunt, NodeJS)
 * LESS
 * AngularJS
 * Github Pages
-* Python 
-** BeautifulSoup
-** Requests
+* Python (BeautifulSoup, Requests)
 
 ###What is the purpose of this site?
 
