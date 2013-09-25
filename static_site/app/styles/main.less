@@ -8,6 +8,88 @@
 }
 
 
-header h2{
-	font-size:18px;
+header{ 
+	margin-top:50px;
+	color:white;
+	h1{
+		font-family:'Merriweather Sans', sans-serif;
+		font-weight:300;
+		font-size:56px;
+	}
+
+	h2{
+		font-size:18px;
+	}
+}
+
+a{
+	color:#428C24;
+}
+
+.description{
+	
+	@media only screen and (min-width : 768px) { 
+		margin-top:80px;
+	} 
+
+	vertical-align:bottom;
+
+	ul{	
+		color:white;
+		margin-left:0px;
+		padding-left:15px;
+		
+		a{
+			color:darkgrey;
+			font-weight:700;
+		}
+	}
+}
+
+
+body {
+	background-color:#A60400;
+	
+}
+
+div.table-responsive{
+	padding:10px;
+	background-color:white;
+}
+
+table {
+	background-color:white;
+
+	thead{
+		
+		.header-subject{
+			max-width:10%;
+
+		}
+	}
+
+	th {
+		// width:25%;	
+
+		a:hover {
+			text-decoration: none;
+		}
+	}
+	
+	tbody {
+		
+		tr{
+			td:not(.class-subject){
+				min-width:125px;
+			}
+
+			.class-subject {
+				text-overflow: ellipsis;
+				overflow: hidden;
+				max-width:600px;
+			}	
+		}
+		
+	}
+	
 }

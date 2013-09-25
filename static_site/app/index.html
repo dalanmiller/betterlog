@@ -1,4 +1,4 @@
-<html ng-app>
+<html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="styles/main.css">
     <!-- build:js scripts/vendor/modernizr.js -->
     <script src="bower_components/modernizr/modernizr.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Merriweather+Sans:400,300' rel='stylesheet' type='text/css'>
+
     <!-- endbuild -->
 
     <!-- build:js scripts/main.js -->
@@ -21,40 +23,52 @@
     <script src="scripts/main.js"></script>
     <script src="scripts/betterlogue.js"></script>
     <!-- endbuild -->
+
   </head>
-  <body ng-controller="BetterlogueCtrl">
+  <body ng-app="Scotty">
     <div class="container">
       <div class="row">
-          <div class="col-lg-12">
+          <div class="col-md-5">
           <header>
             <h1>Scotty</h1>
             <h2>A better way to search the Heinz course catalog</h2>
           </header>
           </div>
+          <div class="col-md-7">
+            <div class="description">
+            <ul>
+              <li>It's important to keep moving forward and changing the way we do things.</li>
+              <li>Click on any of the header titles below to sort.</li>
+              <li>If you have any suggestions on how this can be improved please <a href="mailto:dalan.miller@gmail.com">email me</a></li>
+            </ul>
+            </div>
+          </div>
       </div>
-      <div class="row">
-          <div class="col-lg-12">
+      <div ng-controller="LogCtrl" class="row">
+          <div class="col-md-12">
             <form>
               <div class="form-group">
-                <input ng-model="query" ng-change="update()" id="search" type="search" class="form-control input-lg" placeholder="Search for a class">
+                <input ng-model="query" ng-change="update()" id="search" type="search" class="form-control input-lg" placeholder="Search or filter by any information you see below">
               </div>
             </form>
-            <table class="table table-hover">
+            <div class="table-responsive">
+            <table class="table table-condensed">
               <thead>
-                <th>Course #</th>
-                <th>Course Title</th>
-                <th>Faculty</th>
-                <th>Subject</th>
+                <th ng-click="ordering = 'num'; reverse=!reverse"><a href="">Course #</a></th>
+                <th ng-click="ordering = 'title'; reverse=!reverse"><a href="">Course Title</a></th>
+                <th ng-click="ordering = 'professor'; reverse=!reverse"><a href="">Faculty</a></th>
+                <th class="header-subject" ng-click="ordering = 'subject'; reverse=!reverse"><a href="">Subject</a></th>
               </thead>
-              <tbody ng-repeat="class in classes | filter:query | orderBy:num">
+              <tbody ng-repeat="class in classes | filter:query | orderBy:ordering:reverse">
                 <tr class="class">
-                    <td>{{class.num}}</td>
+                    <td><a href="{{class.url}}" target="_blank">{{class.num}}</a></td>
                     <td>{{class.title}}</td>
                     <td>{{class.professor}}</td>
-                    <td>{{class.subject}}</td>
+                    <td class="class-subject">{{class.subject}}</td>
                 </tr>
               </tbody>
             </table>
+            </div>
           </div>
       </div>
     </div>
@@ -66,7 +80,7 @@
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>
-      var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+      var _gaq=[['_setAccount','UA-44313231-1'],['_trackPageview']];
       (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
       g.src='//www.google-analytics.com/ga.js';
       s.parentNode.insertBefore(g,s)}(document,'script'));
@@ -77,7 +91,8 @@
         
 
         <!-- build:js scripts/vendor/bootstrap.js -->
-        <script src="bower_components/bootstrap/js/affix.js"></script>
+       <!--
+        <script src="bower_components/bootstrap/js/affix.js"></script> 
         <script src="bower_components/bootstrap/js/alert.js"></script>
         <script src="bower_components/bootstrap/js/dropdown.js"></script>
         <script src="bower_components/bootstrap/js/tooltip.js"></script>
@@ -89,6 +104,7 @@
         <script src="bower_components/bootstrap/js/scrollspy.js"></script>
         <script src="bower_components/bootstrap/js/collapse.js"></script>
         <script src="bower_components/bootstrap/js/tab.js"></script>
+        -->
         <!-- endbuild -->
 </body>
 </html>

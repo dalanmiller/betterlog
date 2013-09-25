@@ -26,17 +26,17 @@ if __name__ == '__main__':
 	for line in soup.find(id="specialtbl").findAll("tr"):
 			info = line.findAll("a")
 			if len(info) >= 3:
-				
+
 				course = dict(
 					num = info[0].getText(),
 					title = info[1]['title'],
 					professor = info[2].getText(),
-					subject = line.findAll("td")[-1].getText()
+					subject = ", ".join([x for x in line.findAll("td")[-1].contents if "<br" not in str(x)]),
+					url = "http://www.heinz.cmu.edu"+info[0]['href']
 				)
 
 				courses.append(course)
 
-	print courses[0]
 	print len(courses)
 
 	with open("classes.json", 'w') as f:

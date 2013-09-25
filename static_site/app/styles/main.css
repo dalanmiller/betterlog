@@ -6808,6 +6808,73 @@ td.visible-print {
   margin: 50px auto 0 auto;
 }
 
+header {
+  margin-top: 50px;
+  color: white;
+}
+
+header h1 {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 56px;
+  font-weight: 300;
+}
+
 header h2 {
   font-size: 18px;
+}
+
+a {
+  color: #428C24;
+}
+
+.description {
+  vertical-align: bottom;
+}
+
+@media only screen and (min-width: 768px) {
+  .description {
+    margin-top: 80px;
+  }
+}
+
+.description ul {
+  padding-left: 15px;
+  margin-left: 0;
+  color: white;
+}
+
+.description ul a {
+  font-weight: 700;
+  color: darkgrey;
+}
+
+body {
+  background-color: #A60400;
+}
+
+div.table-responsive {
+  padding: 10px;
+  background-color: white;
+}
+
+table {
+  background-color: white;
+}
+
+table thead .header-subject {
+  max-width: 10%;
+}
+
+table th a:hover {
+  text-decoration: none;
+}
+
+table tbody tr td:not(.class-subject) {
+  min-width: 125px;
+}
+
+table tbody tr .class-subject {
+  max-width: 600px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
