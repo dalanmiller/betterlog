@@ -25,24 +25,7 @@ function BetterlogueCtrl($scope, $http) {
 
   		});
 
-  	
-
-
- 
-  $scope.filter = function() {
-
-
-
-    //$scope.todos.push({text:$scope.todoText, done:false});
-    //$scope.todoText = '';
-  };
-
-  $scope.update = function() {
-    console.log($scope.query)
-
-
-  }
-
+  
   $scope.debugClasses = function(){
   	console.log(classes);
   }

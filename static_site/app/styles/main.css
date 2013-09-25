@@ -6807,3 +6807,7 @@ td.visible-print {
 .hero-unit {
   margin: 50px auto 0 auto;
 }
+
+header h2 {
+  font-size: 18px;
+}
