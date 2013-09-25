@@ -10,43 +10,52 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <link rel="stylesheet" href="styles/cc108b61.main.css">
+    <link rel="stylesheet" href="styles/9901c517.main.css">
     <script src="scripts/vendor/f7f27360.modernizr.js"></script>
 
-    <script src="scripts/cb11af83.main.js"></script>
+    <script src="scripts/272cc005.main.js"></script>
 
   </head>
   <body ng-app="Scotty">
     <div class="container">
       <div class="row">
-          <div class="col-lg-12">
+          <div class="col-md-5">
           <header>
             <h1>Scotty</h1>
             <h2>A better way to search the Heinz course catalog</h2>
           </header>
           </div>
+          <div class="col-md-7">
+            <div class="description">
+            <ul>
+              <li>It's important to keep moving forward and changing the way we do things.</li>
+              <li>Click on any of the header titles below to sort.</li>
+              <li>If you have any suggestions on how this can be improved please <a href="mailto:dalan.miller@gmail.com">email me</a></li>
+            </ul>
+            </div>
+          </div>
       </div>
       <div ng-controller="LogCtrl" class="row">
-          <div class="col-lg-12">
+          <div class="col-md-12">
             <form>
               <div class="form-group">
-                <input ng-model="query" ng-change="update()" id="search" type="search" class="form-control input-lg" placeholder="Search for a class">
+                <input ng-model="query" ng-change="update()" id="search" type="search" class="form-control input-lg" placeholder="Search or filter by any information you see below">
               </div>
             </form>
             <div class="table-responsive">
             <table class="table table-condensed">
               <thead>
-                <th ng-click="ordering = 'num'; reverse=!reverse"><a href="">#</a></th>
+                <th ng-click="ordering = 'num'; reverse=!reverse"><a href="">Course #</a></th>
                 <th ng-click="ordering = 'title'; reverse=!reverse"><a href="">Course Title</a></th>
                 <th ng-click="ordering = 'professor'; reverse=!reverse"><a href="">Faculty</a></th>
-                <th ng-click="ordering = 'subject'; reverse=!reverse"><a href="">Subject</a></th>
+                <th class="header-subject" ng-click="ordering = 'subject'; reverse=!reverse"><a href="">Subject</a></th>
               </thead>
               <tbody ng-repeat="class in classes | filter:query | orderBy:ordering:reverse">
                 <tr class="class">
-                    <td>{{class.num}}</td>
+                    <td><a href="{{class.url}}" target="_blank">{{class.num}}</a></td>
                     <td>{{class.title}}</td>
                     <td>{{class.professor}}</td>
-                    <td>{{class.subject}}</td>
+                    <td class="class-subject">{{class.subject}}</td>
                 </tr>
               </tbody>
             </table>
