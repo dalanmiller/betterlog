@@ -72,7 +72,7 @@ I use the moment.js library to display information about when the user was last 
 		}
 	});
 
-!(moments.jpg)
+![10 moments ago](/moments.jpg)
 
 ##Retinajs 
 
