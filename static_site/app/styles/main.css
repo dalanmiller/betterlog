@@ -6878,3 +6878,10 @@ table tbody tr .class-subject {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+.full-width-image-1 {
+  padding: 125px 0;
+  text-align: center;
+  background: url("/scotty.jpg") no-repeat center 25% scroll;
+  background-size: cover;
+}
